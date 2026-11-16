@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            min-height: 100vh;
+            padding: 35px 15px;
+            color: white;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 30px;
+            color: #f8fafc;
+        }
+
+        form {
+            width: 100%;
+            max-width: 480px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #334155;
+            font-size: 15px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            outline: none;
+            font-size: 15px;
+            background: #f8fafc;
+            transition: 0.3s;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+        }
+
+        .radio-group {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .radio-group label {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin: 0;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        input[type="radio"] {
+            accent-color: #2563eb;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .home-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .home-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            form {
+                padding: 22px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Student Registration</h2>
+
+    <form action="/student/add" method="post">
+
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" placeholder="Enter student name" required>
+        </div>
+
+        <div class="form-group">
+            <label>Age</label>
+            <input type="number" name="age" placeholder="Enter age" min="18" max="30" required>
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="gender" value="Male" required>
+                    Male
+                </label>
+
+                <label>
+                    <input type="radio" name="gender" value="Female">
+                    Female
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Marks</label>
+            <input type="number" name="marks" placeholder="Enter marks" required>
+        </div>
+
+        <div class="form-group">
+            <label>Course</label>
+            <select name="course" required>
+                <option value="">Select course</option>
+                <option value="Python">Python</option>
+                <option value="Java">Java</option>
+                <option value="SQL">SQL</option>
+                <option value="FastAPI">FastAPI</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Image Path</label>
+            <input type="text" name="image" placeholder="Enter image path" required>
+        </div>
+
+        <div class="form-group">
+            <label>Status</label>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="status" value="1" required>
+                    Active
+                </label>
+
+                <label>
+                    <input type="radio" name="status" value="0">
+                    Inactive
+                </label>
+            </div>
+        </div>
+
+        <button type="submit">Register Student</button>
+
+        <a href="/" class="home-link">Back to Home</a>
+
+    </form>
+
+</body>
+</html>

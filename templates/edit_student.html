@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Student</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+            min-height: 100vh;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .form-container {
+            max-width: 480px;
+            margin: auto;
+            background: white;
+            color: #334155;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 7px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 13px;
+            background: #16a34a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #15803d;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Update Student Details</h1>
+
+    <div class="form-container">
+
+        <form action="/student/edit/{{std[0]}}" method="post">
+
+            <label>Name</label>
+            <input type="text" name="name" value="{{ std[1] }}" required>
+
+            <label>Age</label>
+            <input type="number" name="age" value="{{ std[2] }}" min="18" max="30" required>
+
+            <label>Gender</label>
+            <select name="gender" required>
+                <option value="Male" {% if std[3] == 'Male' %}selected{% endif %}>Male</option>
+                <option value="Female" {% if std[3] == 'Female' %}selected{% endif %}>Female</option>
+            </select>
+
+            <label>Marks</label>
+            <input type="number" name="marks" value="{{ std[4] }}" required>
+
+            <label>Course</label>
+            <select name="course" required>
+                <option value="Python" {% if std[5] == 'Python' %}selected{% endif %}>Python</option>
+                <option value="Java" {% if std[5] == 'Java' %}selected{% endif %}>Java</option>
+                <option value="SQL" {% if std[5] == 'SQL' %}selected{% endif %}>SQL</option>
+                <option value="FastAPI" {% if std[5] == 'FastAPI' %}selected{% endif %}>FastAPI</option>
+            </select>
+
+            <label>Image URL</label>
+            <input type="text" name="image" value="{{ std[6] }}" required>
+
+            <label>Status</label>
+            <select name="status" required>
+                <option value="1" {% if std[7] == 1 %}selected{% endif %}>Active</option>
+                <option value="0" {% if std[7] == 0 %}selected{% endif %}>Inactive</option>
+            </select>
+
+            <button type="submit">Update Student</button>
+
+        </form>
+
+        <a href="/" class="back">Back to Home</a>
+
+    </div>
+
+</body>
+</html>
